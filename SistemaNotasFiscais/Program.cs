@@ -1,5 +1,6 @@
 using SistemaNotasFiscais.Data;
 using SistemaNotasFiscais.Services;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "UneCont - API de Notas Fiscais",
         Version = "v1",
@@ -27,18 +28,6 @@ builder.Services.AddSingleton<DatabaseHelper>(provider =>
 
 builder.Services.AddScoped<INotaFiscalRepository, NotaFiscalRepository>();
 builder.Services.AddScoped<INotaFiscalService, NotaFiscalService>();
-
-//// Configuração do CORS
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("PermitirTudo",
-//        policy =>
-//        {
-//            policy.AllowAnyOrigin()
-//                  .AllowAnyHeader()
-//                  .AllowAnyMethod();
-//        });
-//});
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-# UneCont - API de Notas Fiscais
+# API de Notas Fiscais
 
 ## 📋 Estrutura do Projeto
 
